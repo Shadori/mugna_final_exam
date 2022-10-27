@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+        <title>{% block title %}Pokedex{% endblock %}</title>
+
+        <a href= "/pages/login">
+            <button type="submit">Log-in</button>
+        </a>&nbsp;&nbsp;
+        <a href= "/pages/register">
+            <button type="submit">Register</button>
+        </a>&nbsp;&nbsp;
+        <a href= "/pages/register">
+            <button type="submit">Log-out</button>
+        </a>&nbsp;&nbsp;
+
+    </head>
+    <body>
+    
+        {% block content %}{% endblock %}
+        {% block footer %}
+        <hr>
+        <p>Gotta catch'em all!</p>
+        {% endblock %}
+    </body>
+    </html>

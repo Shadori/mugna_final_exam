@@ -1,0 +1,11 @@
+{% extends "pages/base.html" %}
+{% block content %}
+<h1>Delete this Pokemon?</h1>
+<hr>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

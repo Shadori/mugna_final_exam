@@ -1,0 +1,16 @@
+{% extends "pages/base.html" %}
+{% block content %}
+
+<h1>Pokemon Type: {{ type_details.element_name }}</h1>
+<h3>List of Pokemon:</h3>
+<p>
+    {% for pokemon in pokemon_types.pokemon.all %}
+        <li>
+            <a href="{% url 'pokemon:pokemondetail' pokemon.id %}">{{ pokemon }} </a>
+        </li>
+    {% empty %}
+        <p>No available pokemon.</p>
+    {% endfor %}
+    </p>
+
+{% endblock %}

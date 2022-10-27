@@ -1,0 +1,16 @@
+{% extends "pages/base.html" %}
+{% block content %}
+
+{% if pokemon %}
+<p>Found {{ pokemon|length }}.</p>
+<ul>
+    {% for pokemon_name in pokemon %}
+    <li><a href="{{ pokemon_name.id }}">{{ pokemon_name }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No pokemon matched your search criteria.</p>
+{% endif %}
+</body>
+
+{% endblock %}

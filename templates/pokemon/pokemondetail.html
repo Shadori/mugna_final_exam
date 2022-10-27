@@ -1,0 +1,27 @@
+{% extends "pages/base.html" %}
+{% block title %} {{ pokemon_detail.pokemon_name }} {% endblock %}
+
+{% block content %}
+
+<h1>Pokemon Name: {{ pokemon_detail.pokemon_name }}</h1>
+<hr>
+<h3>Pokedex Number:</h3><p>{{ pokemon_detail.pokemon_number }}</p>
+<h3>Pokemon Type:</h3>
+<p>
+    {% for type in pokemon_detail.pokemon_type.all %}
+        {{ type|linebreaks }}
+    {% endfor %}
+</p>
+<h3>Height:</h3><p>{{ pokemon_detail.height }}</p>
+<h3>Weight:</h3><p>{{ pokemon_detail.weight }}</p>
+<h4>Description:</h4><p>{{ pokemon_detail.description }}</p>
+
+<a href= "update/{{ pokemon_detail.id }}">
+    <button type="submit">Update {{ pokemon_detail.name }}</button>
+</a>&nbsp;&nbsp;
+
+<a href= "delete/{{ pokemon_detail.id }}">
+    <button type="submit">Delete {{ pokemon_detail.name }}</button>
+</a>
+
+{% endblock %}

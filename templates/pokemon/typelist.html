@@ -1,0 +1,14 @@
+{% extends "pages/base.html" %}
+{% block content %}
+
+<h1>List of Pokemon Types:</h1>
+<p>
+{% for type in pokemon_types %}
+    <li> 
+        <a href = "/pokemon/types/{{ type.id }}">{{ type }} </a>
+    </li>
+    {% empty %}
+    <h3>No Pokemon type available.</h3>
+    {% endfor %}
+
+{% endblock %}  
