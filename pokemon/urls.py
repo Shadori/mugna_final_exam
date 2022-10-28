@@ -17,18 +17,14 @@ Including another URLconf
 from django.urls import path
 
 from .views import (
-    # pokemonlist_view,
-    # pokemondetail_view,
-    # typelist_view,
-    # pokemonintypes,
     PokemonListView,
     PokemonDetailView,
     PokemonTypeListView,
     PokemonTypeDetailView,
-    PokemonCreateView,
     PokemonUpdateView,
     PokemonDeleteView,
     SearchPokemonView,
+    PokemonCreateView,
 )
 
 app_name = "pokemon"

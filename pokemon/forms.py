@@ -58,10 +58,10 @@ class LoginForm(forms.Form):
     password = forms.CharField(max_length=30)
 
 
-class RegistrationForm(forms.Form):
+class RegistrationForm(forms.ModelForm):
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
         fields = [
             "username",
-            "email",
+            "password",
         ]

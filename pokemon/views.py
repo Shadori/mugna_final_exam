@@ -3,16 +3,17 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import (
     ListView,
     DetailView,
-    CreateView,
-    DeleteView,
-    UpdateView,
     View,
 )
 from django.contrib import messages
 from django.urls import reverse
+from django.utils.decorators import method_decorator
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from .models import Pokemon, PokemonType
-from .forms import PokemonForm, PokemonType, PokemonUpdateForm, PokemonDeleteForm
+from .forms import PokemonForm, PokemonTypeForm, PokemonUpdateForm, PokemonDeleteForm
+from .decorators import allowed_user
 
 
 class PokemonListView(View):
@@ -62,6 +63,8 @@ class PokemonTypeDetailView(DetailView):
 """ADDING POKEMON"""
 
 
+@method_decorator(login_required(login_url="pages:login"), name="dispatch")
+@method_decorator(allowed_user(allowed_roles=["Admin"]), name="dispatch")
 class PokemonCreateView(View):
     model = Pokemon
     queryset = Pokemon.objects.all()
