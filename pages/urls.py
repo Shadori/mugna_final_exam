@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 
-from pages.views import RegistrationView, LoginView
+from .views import RegistrationView, LoginView
 
 app_name = "pages"
 
